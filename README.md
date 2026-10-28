@@ -1,16 +1,16 @@
-# Fushidara KO Android — 1.05.9 mobile r4
+# Fushidara KO Android — 1.05.9 mobile r5
 
-Extract `Fushidara_KO_A33_v1.05.9_r4.zip` and install the APK as an update over the previous build. Package ID and signing certificate are unchanged; version code is 1050904.
+Extract `Fushidara_KO_A33_v1.05.9_r5.zip` and update the installed APK. App ID/signing certificate are unchanged; version code is 1050905.
 
-Open game Settings → MOD panel → 표정 (Expressions):
-- Toggle off automatic heart eyes caused by development, without changing development statistics or gameplay rules. Original automatic behavior is the default.
-- Select any of the four characters and choose from 22 actual face-image previews to lock that character's standing portrait and face icons.
-- Fixed selections take priority over reactions, sleep/hypnosis expressions and blinking. Manually selecting heart eyes is still allowed when automatic heart eyes are blocked.
-- Return one character or all characters to automatic expressions. The independent automatic-heart blocking setting is preserved by resetting fixed faces.
-- Choices are stored in normal saved-game state and survive save/load.
+Fix MOD stats and relationship synchronization:
+- Numeric fields and relationship selectors continuously show current game state, including a focused numeric field when no text edit is pending. Display refresh never writes values or creates locks.
+- Temporary MOD holds are scoped to one State instance and reset before processing a different save/new game.
+- Explicit MOD holds on affection, mood, development, relationships and supported character stats use the native game's stat locks. The game's existing individual/unlock-all controls are authoritative; MOD never restores old held values after unlocking.
+- No duplicate unlock-all button was added. Deliberate locks stored in a save are preserved on load and can be released using the original game controls.
+- Unconfigured growth modifiers now match the original game's neutral defaults instead of silently using 0.1 multipliers. Explicitly saved custom modifiers are preserved.
 
-Validation: all 88 thumbnails exist and are distinct (22 per character); all 88 fixed-expression choices, automatic resets, heart blocking, unchanged game statistics, blink locking, actual State save/load, original 16:9 canvas, repeated MOD open/close and Android Back tests passed. Release runtime startup, APK signatures, alignment and all packaged assets were verified. Physical Galaxy A33 testing has not been performed.
+Validation: an actual conversation changed affection 39→41 and relation stranger→friend; MOD numeric and relationship fields updated immediately. Tests covered cross-save isolation, focused-but-unedited fields, manual edits without holds, explicit holds, existing native unlock-all, unlocked save/load persistence and settings reset/import. Existing 16:9/UI and all 88 expression previews/locks/save-load regression tests passed. APK signatures/alignment/assets and release-runtime startup verified. Physical Galaxy A33 testing has not been performed.
 
-The 1280×720 / 16:9 canvas and Android immersive fullscreen fixes from r3 are retained. ARM64 Android 7.0+ / Godot 4.7.2 / OpenGL compatibility. This update does not delete saved games.
+The expression selector, heart-eye preference, original 1280×720 / 16:9 canvas, settings MOD entry and Android immersive fullscreen remain available. ARM64 Android 7.0+ / Godot 4.7.2 / OpenGL compatibility. Existing saves are not deleted.
 
-Actual ZIP content is uploaded using Git LFS due to the 100 MiB normal Git file limit. SHA-256 is in `SHA256SUMS`. Earlier releases remain on their separate version branches.
+Actual ZIP content uses Git LFS due to the 100 MiB ordinary Git blob limit; SHA-256 is in `SHA256SUMS`. Earlier releases remain on separate version branches.

@@ -1,0 +1,11 @@
+{
+  "cross_save_scope": true,
+  "failures": [],
+  "live_numbers_and_relations": true,
+  "native_unlock_and_save_load": true,
+  "real_conversation": {
+    "after": 41,
+    "before": 39,
+    "relation": "friend"
+  }
+}
