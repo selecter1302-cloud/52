@@ -1,15 +1,11 @@
-# Fushidara KO Android — 1.05.9 mobile r2
+# Fushidara KO Android — 1.05.9 mobile r3
 
-Download `Fushidara_KO_A33_v1.05.9_r2.zip`, extract it, and install the APK inside. The package ID and signing certificate match r1, and the version code is increased to allow updating the installed app.
+Extract `Fushidara_KO_A33_v1.05.9_r3.zip` and install the APK. Package ID and signing certificate match r1/r2; version code 1050903 allows an update installation.
 
-Changes:
-- Preserve the original 1280×720 (16:9) game canvas with letterboxing instead of expanding to the device aspect ratio.
-- Remove the disappearing floating F2/Esc/collapse toolbar.
-- Add a permanent MOD panel entry in the game's settings footer.
-- Add a touch Close button in the MOD panel; Android Back also closes it.
+Fix Android system bars reappearing after launch: the original desktop window preference called `window_set_mode(WINDOW_MODE_WINDOWED)`, which disables immersive mode on Android. On Android the game now applies fullscreen instead and reapplies it on application focus/resume. Export explicitly sets `screen/immersive_mode=true` and `screen/edge_to_edge=false`; the actual APK startup arguments include `--fullscreen` and omit `--edge_to_edge`.
 
-Validation: four screen dimensions retained a 1280×720 logical viewport; four repeated settings-to-MOD open/close cycles and Android Back handling passed. Release-runtime startup, APK signatures, alignment, and all packaged assets were verified. Physical Galaxy A33 testing has not been performed.
+The original 1280×720 / 16:9 canvas, letterboxing, MOD entry in game settings, MOD Close button and Android Back handling remain. Swiping from a screen edge can temporarily show Android system bars, as expected for immersive mode. This update does not delete saved games.
 
-ARM64 Android 7.0+; Godot 4.7.2; OpenGL compatibility renderer. Existing saves are not deleted by this update.
+Validation: all packaged assets, APK signatures and alignment verified; four screen dimensions, four repeated settings-to-MOD open/close cycles and Android Back regression tests passed. Release-runtime startup passed. Physical Galaxy A33 testing has not been performed.
 
-The ZIP's actual content is stored in Git LFS due to GitHub's 100 MiB ordinary-file limit. `SHA256SUMS` records its SHA-256. This version has its own branch; r1 is preserved.
+ARM64 Android 7.0+; Godot 4.7.2; OpenGL compatibility. Actual ZIP contents are uploaded using Git LFS due to the 100 MiB ordinary Git blob limit. SHA-256 is in `SHA256SUMS`. Each version has a separate branch.
