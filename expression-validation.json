@@ -1,0 +1,16 @@
+{
+  "auto_heart_toggle": true,
+  "counts": {
+    "characters": 4,
+    "fixed_faces_checked": 88,
+    "previews_checked": 88
+  },
+  "distinct_preview_images": {
+    "marisa": 22,
+    "reimu": 22,
+    "sakuya": 22,
+    "sanae": 22
+  },
+  "failures": [],
+  "save_load": true
+}
